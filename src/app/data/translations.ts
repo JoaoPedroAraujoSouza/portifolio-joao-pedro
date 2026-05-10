@@ -80,8 +80,6 @@ export const translations = {
       send_email: "Enviar e-mail",
     },
     footer: {
-      built_with: "Desenvolvido com",
-      by: "por João Pedro",
       rights: "Todos os direitos reservados.",
     },
   },
@@ -164,8 +162,6 @@ export const translations = {
       send_email: "Send email",
     },
     footer: {
-      built_with: "Built with",
-      by: "by João Pedro",
       rights: "All rights reserved.",
     },
   },
