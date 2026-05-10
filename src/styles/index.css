@@ -1,3 +1,230 @@
-@import './fonts.css';
-@import './tailwind.css';
-@import './theme.css';
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import "./fonts.css";
+@import "./theme.css";
+@import "./tailwind.css";
+
+/* ─── Custom scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #6366f1, #8b5cf6);
+  border-radius: 99px;
+}
+
+/* ─── Selection ────────────────────────────────────────────── */
+::selection {
+  background: rgba(99, 102, 241, 0.2);
+  color: inherit;
+}
+
+/* ─── Base font + subtle light-mode tint ────────────────────── */
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Very subtle indigo-tinted background so glows & blobs pop */
+  background: #f8f7ff;
+}
+.dark body {
+  background: transparent; /* dark handled by Tailwind bg-gray-950 */
+}
+
+code, pre, kbd, .font-mono {
+  font-family: "JetBrains Mono", "Fira Code", monospace !important;
+}
+
+/* ─── Gradient text ─────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-shine {
+  background: linear-gradient(
+    90deg,
+    #6366f1 0%,
+    #8b5cf6 25%,
+    #06b6d4 50%,
+    #8b5cf6 75%,
+    #6366f1 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShine 4s linear infinite;
+}
+
+@keyframes textShine {
+  to { background-position: 200% center; }
+}
+
+/* ─── Glow utilities ────────────────────────────────────────── */
+.glow-indigo {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.3), 0 0 60px rgba(99, 102, 241, 0.1);
+}
+.glow-violet {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.3), 0 0 60px rgba(139, 92, 246, 0.1);
+}
+
+/* ─── Noise texture overlay ─────────────────────────────────── */
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ─── Animated border gradient ──────────────────────────────── */
+.animated-border {
+  position: relative;
+}
+.animated-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--angle, 0deg), #6366f1, #8b5cf6, #06b6d4, #6366f1);
+  animation: rotateBorder 4s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 2px;
+}
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rotateBorder {
+  to { --angle: 360deg; }
+}
+
+/* ─── Shimmer on hover ──────────────────────────────────────── */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0s;
+}
+.shimmer:hover::after {
+  left: 150%;
+  transition: left 0.6s ease;
+}
+
+/* ─── Glass card ─────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+.dark .glass {
+  background: rgba(15, 15, 30, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+/* ─── Section divider ───────────────────────────────────────── */
+.section-line {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  border-radius: 99px;
+  margin: 0 auto 1.5rem;
+}
+
+/* ─── Cursor glow ────────────────────────────────────────────── */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  /* Stronger in light mode so it shows on the tinted bg */
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: left 0.08s ease, top 0.08s ease;
+  z-index: 0;
+}
+.dark .cursor-glow {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+}
+
+/* ─── Dot grid ───────────────────────────────────────────────── */
+/* Light mode: darker dots so they show on tinted white bg */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(99, 102, 241, 0.35) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.dark .dot-grid {
+  background-image: radial-gradient(circle, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+}
+
+/* ─── Floating code words ────────────────────────────────────── */
+/* Light mode: higher opacity so they show; dark: same */
+@keyframes float-word-light {
+  0%, 100% { transform: translateY(0px);  opacity: 0.08; }
+  50%       { transform: translateY(-14px); opacity: 0.14; }
+}
+@keyframes float-word-dark {
+  0%, 100% { transform: translateY(0px);  opacity: 0.06; }
+  50%       { transform: translateY(-14px); opacity: 0.10; }
+}
+.float-word {
+  animation: float-word-light 8s ease-in-out infinite;
+}
+.dark .float-word {
+  animation: float-word-dark 8s ease-in-out infinite;
+}
+
+/* ─── Watermark numbers ──────────────────────────────────────── */
+/* Reusable class: use instead of text-gray-100 inline */
+.watermark {
+  color: rgba(99, 102, 241, 0.07); /* indigo tint, visible on tinted white */
+}
+.dark .watermark {
+  color: rgba(255, 255, 255, 0.04);
+}
+
+/* ─── Section backgrounds with very subtle gradient ────────── */
+/* Light: slight indigo-tinted base instead of flat gray-50 */
+.section-alt {
+  background: linear-gradient(160deg, #f5f3ff 0%, #eef2ff 50%, #f0fdf4 100%);
+}
+.dark .section-alt {
+  background: transparent; /* dark handled by Tailwind */
+}
+
+/* ─── Hover card glow (light mode explicit) ─────────────────── */
+.card-hover-glow:hover {
+  box-shadow:
+    0 20px 60px rgba(99, 102, 241, 0.12),
+    0 4px 16px rgba(99, 102, 241, 0.08);
+}
+.dark .card-hover-glow:hover {
+  box-shadow:
+    0 20px 60px rgba(99, 102, 241, 0.06),
+    0 4px 16px rgba(99, 102, 241, 0.04);
+}
