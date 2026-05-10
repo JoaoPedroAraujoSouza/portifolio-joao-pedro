@@ -3,6 +3,7 @@ import { Moon, Sun, Github, Linkedin, Instagram, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { usePortfolio } from "../context/PortfolioContext";
 import { translations } from "../data/translations";
+import { BrandMark } from "./BrandMark";
 
 export function Header() {
   const { lang, setLang, isDark, toggleTheme } = usePortfolio();
@@ -52,12 +53,15 @@ export function Header() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <button onClick={() => handleNav("#home")} className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 via-violet-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:scale-110 transition-transform">
-            <span className="text-white text-xs font-black">JP</span>
-          </div>
-          <span className="font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-            João Pedro
+        <button onClick={() => handleNav("#home")} className="flex items-center gap-2.5 group" aria-label="João Pedro">
+          <BrandMark className="h-9 w-9 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3" />
+          <span className="flex flex-col leading-none">
+            <span className="font-black tracking-tight text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+              João Pedro
+            </span>
+            <span className="hidden sm:block text-[10px] font-mono uppercase tracking-[0.2em] text-gray-400 dark:text-gray-600">
+              Java Backend
+            </span>
           </span>
         </button>
 
