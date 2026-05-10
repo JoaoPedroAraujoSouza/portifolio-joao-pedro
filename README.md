@@ -1,11 +1,43 @@
+# Portfólio — João Pedro de Araújo Souza
 
-  # Add placeholder image/icon
+Portfólio profissional de João Pedro de Araújo Souza, desenvolvedor backend/full stack com foco principal em **Java, Spring Boot, PostgreSQL e Docker**.
 
-  This is a code bundle for Add placeholder image/icon. The original project is available at https://www.figma.com/design/a4KpYK3r21kBD2R1l3J2mw/Add-placeholder-image-icon.
+## Sobre
 
-  ## Running the code
+O site apresenta perfil profissional, experiências, projetos, currículo em HTML/PDF e canais de contato. A proposta é servir como página pública para recrutadores, contratadores e parceiros técnicos avaliarem trajetória, stack e entregas.
 
-  Run `npm i` to install the dependencies.
+## Stack do projeto
 
-  Run `npm run dev` to start the development server.
-  
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Motion
+- Lucide React
+
+## Conteúdo em destaque
+
+- Posicionamento backend-first com Java/Spring Boot.
+- Projetos com contexto, stack, funcionalidades e impacto técnico.
+- Experiência profissional atualizada, incluindo atuação atual no Laboratório InnovaGov — UFRPE.
+- Currículo em HTML para leitura rápida e PDF para download.
+- Interface bilíngue em português e inglês.
+
+## Rodando localmente
+
+```bash
+npm install
+npm run dev
+```
+
+## Build de produção
+
+```bash
+npm run build
+```
+
+## Contato
+
+- LinkedIn: <https://linkedin.com/in/joao-pedro-araujo-souza>
+- GitHub: <https://github.com/JoaoPedroAraujoSouza>
+- E-mail: <joaopedroaraujosouzadev@gmail.com>
