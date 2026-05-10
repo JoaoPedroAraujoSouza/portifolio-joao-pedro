@@ -5,16 +5,27 @@ interface BrandMarkProps {
 export function BrandMark({ className = "" }: BrandMarkProps) {
   return (
     <span
-      className={`relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-slate-950 shadow-lg shadow-indigo-500/25 ring-1 ring-white/10 ${className}`}
+      className={`relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-slate-950 shadow-lg shadow-indigo-500/20 ring-1 ring-slate-900/10 dark:ring-white/10 ${className}`}
       aria-hidden="true"
     >
-      <span className="absolute inset-0 bg-[radial-gradient(circle_at_30%_15%,rgba(34,211,238,0.45),transparent_34%),radial-gradient(circle_at_78%_75%,rgba(167,139,250,0.5),transparent_38%)]" />
+      <span className="absolute inset-0 bg-[linear-gradient(135deg,rgba(79,70,229,0.28),transparent_42%),radial-gradient(circle_at_75%_20%,rgba(34,211,238,0.28),transparent_28%)]" />
       <svg viewBox="0 0 64 64" className="relative h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 22L9 32L16 42" stroke="#22D3EE" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M48 22L55 32L48 42" stroke="#A78BFA" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M28 17V38C28 44.2 24.2 48 18.5 48C15.7 48 13.4 47.2 11.8 45.7" stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M35 47V17H45C51.1 17 55 20.7 55 26.1C55 31.7 51.1 35.4 45 35.4H35" stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M30 50L39 14" stroke="#F97316" strokeWidth="3.5" strokeLinecap="round" />
+        <path
+          d="M25 16V39C25 45 21 49 15.5 49C12.6 49 10.4 48.1 8.8 46.6"
+          stroke="white"
+          strokeWidth="5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M36 49V16H46C52 16 56 20 56 26.2C56 32.4 52 36.4 46 36.4H36"
+          stroke="white"
+          strokeWidth="5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path d="M31 50V14" stroke="#22D3EE" strokeWidth="2.75" strokeLinecap="round" />
+        <circle cx="47" cy="26" r="3" fill="#A78BFA" />
       </svg>
     </span>
   );
