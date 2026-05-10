@@ -44,12 +44,12 @@ function TypewriterRole({ roles }: { roles: string[] }) {
 const techStack = [
   { name: "Java", color: "from-orange-500 to-red-500" },
   { name: "Spring Boot", color: "from-green-500 to-emerald-600" },
-  { name: "TypeScript", color: "from-blue-500 to-blue-600" },
-  { name: "NestJS", color: "from-red-500 to-rose-600" },
   { name: "PostgreSQL", color: "from-cyan-500 to-sky-600" },
   { name: "Docker", color: "from-blue-400 to-blue-600" },
+  { name: "REST APIs", color: "from-indigo-500 to-violet-600" },
+  { name: "JUnit", color: "from-emerald-500 to-teal-600" },
   { name: "React", color: "from-cyan-400 to-blue-500" },
-  { name: "React Native", color: "from-indigo-400 to-violet-600" },
+  { name: "TypeScript", color: "from-blue-500 to-blue-600" },
 ];
 
 
@@ -57,8 +57,8 @@ export function Hero() {
   const { lang } = usePortfolio();
   const t = translations[lang].hero;
   const roles = lang === "pt"
-    ? ["Backend Developer", "Full Stack Developer", "API Designer"]
-    : ["Backend Developer", "Full Stack Developer", "API Designer"];
+    ? ["Java Spring Boot Developer", "Backend Developer", "API Designer"]
+    : ["Java Spring Boot Developer", "Backend Developer", "API Designer"];
 
   const handleNav = (href: string) => {
     const el = document.querySelector(href);
@@ -305,8 +305,8 @@ export function Hero() {
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
             >
-              <span className="w-2.5 h-2.5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-sm" />
-              <span className="text-xs font-mono font-semibold text-gray-700 dark:text-gray-300">TypeScript</span>
+              <span className="w-2.5 h-2.5 bg-gradient-to-r from-cyan-500 to-sky-600 rounded-sm" />
+              <span className="text-xs font-mono font-semibold text-gray-700 dark:text-gray-300">PostgreSQL</span>
             </motion.div>
 
             <motion.div
@@ -324,7 +324,7 @@ export function Hero() {
               transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 0.8 }}
             >
               <span className="w-2.5 h-2.5 bg-gradient-to-r from-green-500 to-emerald-600 rounded-sm" />
-              <span className="text-xs font-mono font-semibold text-gray-700 dark:text-gray-300">Spring</span>
+              <span className="text-xs font-mono font-semibold text-gray-700 dark:text-gray-300">Spring Boot</span>
             </motion.div>
           </div>
         </motion.div>
